@@ -22,6 +22,11 @@ namespace Notes.Views
             // data source for the CollectionView.
             collectionView.ItemsSource = await App.Database.GetNotesAsync();
         }
+        async void OnAddClicked(object sender, EventArgs e)
+        {
+            // Navigate to the NoteEntryPage, without passing any data.
+            await Shell.Current.GoToAsync(nameof(NoteEntryPage));
+        }
         async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (e.CurrentSelection != null)
